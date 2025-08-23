@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login / Sign Up — BookHaven</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+  </head>
+  <body>
+    <!-- NAV (no search bar) -->
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="./index.html">
+          <span class="brand-dot" aria-hidden="true">●</span>
+          <span class="brand-name">Book<span>Haven</span></span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <div class="nav-links">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./books.html">Books</a>
+          <a class="nav-link" href="./about.html">About</a>
+
+          <button
+            id="themeToggle"
+            class="btn icon"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            <span class="icon">🌙</span>
+          </button>
+
+          <!-- Cart button (hidden until logged in) -->
+          <a
+            id="navCart"
+            class="btn icon cart"
+            href="./cart.html"
+            aria-label="Cart"
+            hidden
+          >
+            🛒 <span id="cartCount" class="cart-count">0</span>
+          </a>
+
+          <!-- Auth button changes to full name when logged in -->
+          <a id="navAuthBtn" class="btn primary" href="./register.html"
+            >Login / Register</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <!-- PAGE -->
+    <main class="auth-page">
+      <section class="auth-wrap">
+        <div class="auth-card">
+          <header class="auth-tabs" role="tablist">
+            <button
+              id="tab-login"
+              class="tab active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-login"
+            >
+              Login
+            </button>
+            <button
+              id="tab-signup"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-signup"
+            >
+              Sign Up
+            </button>
+          </header>
+
+          <!-- Login -->
+          <form
+            id="panel-login"
+            class="panel show"
+            role="tabpanel"
+            aria-labelledby="tab-login"
+            novalidate
+          >
+            <div class="field">
+              <label for="loginEmail">Email</label>
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">Password</label>
+              <div class="pass">
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="••••••••"
+                  required
+                  minlength="6"
+                />
+                <button
+                  type="button"
+                  class="pass-toggle"
+                  data-target="loginPassword"
+                  aria-label="Show password"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <div class="row between">
+              <label class="chk"
+                ><input type="checkbox" id="remember" /> Remember me</label
+              >
+              <a class="muted-link" href="#" id="forgotLink"
+                >Forgot password?</a
+              >
+            </div>
+
+            <button class="btn primary wide" type="submit">Login</button>
+
+            <p class="switch-msg">
+              Don’t have an account?
+              <a href="#" id="goSignup">Create one</a>
+            </p>
+          </form>
+
+          <!-- Sign Up -->
+          <form
+            id="panel-signup"
+            class="panel"
+            role="tabpanel"
+            aria-labelledby="tab-signup"
+            novalidate
+          >
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Alex Morgan" required />
+            </div>
+
+            <div class="field">
+              <label for="signupEmail">Email</label>
+              <input
+                type="email"
+                id="signupEmail"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="signupPassword">Password</label>
+              <div class="pass">
+                <input
+                  type="password"
+                  id="signupPassword"
+                  placeholder="min. 6 characters"
+                  required
+                  minlength="6"
+                />
+                <button
+                  type="button"
+                  class="pass-toggle"
+                  data-target="signupPassword"
+                  aria-label="Show password"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="confirmPassword">Confirm Password</label>
+              <div class="pass">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="retype password"
+                  required
+                  minlength="6"
+                />
+                <button
+                  type="button"
+                  class="pass-toggle"
+                  data-target="confirmPassword"
+                  aria-label="Show password"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <label class="chk mb8"
+              ><input type="checkbox" id="tos" required /> I agree to the
+              <a href="#">Terms &amp; Privacy</a></label
+            >
+
+            <button class="btn primary wide" type="submit">
+              Create Account
+            </button>
+
+            <p class="switch-msg">
+              Already have an account?
+              <a href="#" id="goLogin">Sign in</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Side blurb -->
+        <aside class="auth-aside">
+          <h2>Welcome back 👋</h2>
+          <p>
+            Access your library, manage your cart, and keep your wishlist in
+            sync across devices.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <!-- Back to top -->
+    <button id="toTop" class="to-top" aria-label="Back to top">⬆</button>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/app.js"></script>
+
+    <script src="../js/register.js"></script>
+    <script src="../js/books.js"></script>
+  </body>
+</html>

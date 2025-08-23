@@ -1,0 +1,195 @@
+/* =====================================================
+   BOOKS PAGE STYLES
+   ===================================================== */
+
+/* ---------- Globals ---------- */
+:root {
+  --border: #e5e7eb;
+  --muted:  #64748b;
+}
+
+.books-page .wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+
+/* ---------- Header & Toolbar ---------- */
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.page-head h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  color: #0f172a;
+}
+.page-head .sub { margin: 2px 0 0; color: var(--muted); }
+
+.toolbar { display: flex; align-items: center; gap: 16px; }
+
+.sort { display: flex; align-items: center; gap: 8px; color: #475569; }
+.sort select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+/* ---------- View toggle (Grid/List) ---------- */
+.view-toggle { display: flex; gap: 12px; }
+.vbtn {
+  width: 40px; height: 40px; border-radius: 12px;
+  border: 1px solid var(--border); background: #fff; color: #64748b;
+  cursor: pointer; display: grid; place-items: center; transition: .15s ease;
+}
+.vbtn:hover { filter: brightness(.98); }
+.vbtn.active {
+  background: #e8f1ff; border-color: #bfdbfe; color: #2563eb;
+  box-shadow: 0 6px 14px rgba(37,99,235,.15);
+}
+
+/* ---------- Layout (sidebar + results) ---------- */
+.layout { display: grid; grid-template-columns: 280px 1fr; gap: 20px; }
+
+/* ---------- Filters ---------- */
+.filters {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px; height: max-content;
+}
+.filters h3 { margin: 0 0 10px; font-size: 18px; font-weight: 800; }
+
+.label { display: block; margin: 6px 0 6px; font-weight: 700; color: #0f172a; }
+.mt { margin-top: 14px; }
+
+.input {
+  width: 100%; border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px;
+}
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.checks { display: grid; gap: 8px; }
+
+.btns { display: flex; gap: 8px; margin-top: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--border); background: #fff;
+  border-radius: 10px; padding: 10px 12px; cursor: pointer;
+}
+.btn.primary { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+/* ---------- Results ---------- */
+.results-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.muted { color: var(--muted); font-size: 14px; }
+
+/* Grid */
+.book-grid {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Card */
+.book-card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+.book-media { position: relative; aspect-ratio: 16 / 12; overflow: hidden; }
+.book-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Badges (New left, Featured right) */
+.badge-row {
+  position: absolute; top: 12px; left: 0; right: 0;
+  display: flex; justify-content: space-between; padding: 0 12px; pointer-events: none;
+}
+.badge {
+  background: #f59e0b; color: #fff; font-weight: 700; font-size: 13px;
+  padding: 6px 10px; border-radius: 8px;
+}
+.badge.new { background: #22c55e; }
+
+.book-body { padding: 14px 16px 16px; display: grid; gap: 6px; }
+.book-title { margin: 0; font-size: 20px; color: #0f172a; }
+.book-author { margin: 0; color: #475569; font-size: 14px; }
+
+.book-meta { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.chip { background: #e8eefc; color: #1e3a8a; border-radius: 999px; padding: 6px 10px; font-size: 13px; font-weight: 600; }
+.stars { letter-spacing: 2px; color: #f59e0b; font-size: 16px; }
+
+/* Footer + actions */
+.book-footer {
+  margin-top: 8px; padding-top: 10px; border-top: 1px solid #eef2f7;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.price { font-weight: 800; color: #1d4ed8; font-size: 18px; }
+.actions { display: flex; gap: 10px; align-items: center; }
+
+.muted-link { color: #2563eb; text-decoration: none; font-size: 14px; }
+.muted-link:hover { text-decoration: underline; }
+
+.btn.tiny {
+  padding: 8px 12px; border-radius: 10px; border: 1px solid #2563eb;
+  background: #2563eb; color: #fff; font-weight: 600; font-size: 13px; cursor: pointer;
+}
+.btn.tiny:hover { filter: brightness(.95); }
+
+/* ---------- List view ---------- */
+.book-grid.list { grid-template-columns: 1fr; }
+.book-grid.list .book-card { display: grid; grid-template-columns: 220px 1fr; align-items: stretch; }
+.book-grid.list .book-media { aspect-ratio: auto; height: 100%; }
+.book-grid.list .book-media img { height: 100%; object-fit: cover; }
+
+@media (max-width: 640px) {
+  .book-grid.list .book-card { grid-template-columns: 1fr; }
+  .book-grid.list .book-media { aspect-ratio: 16/10; height: auto; }
+}
+
+/* ---------- Back to top ---------- */
+.to-top {
+  position: fixed; right: 18px; bottom: 18px;
+  width: 48px; height: 48px; border-radius: 999px;
+  background: #2563eb; color: #fff; border: 0; cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: 0 10px 24px rgba(37,99,235,.35);
+  opacity: 0; pointer-events: none; transform: translateY(10px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Dark mode ---------- */
+html.dark .filters,
+html.dark .book-card { background: #0f172a; border-color: #1f2937; }
+
+html.dark .page-head h1,
+html.dark .label,
+html.dark .book-title { color: #e5e7eb; }
+
+html.dark .page-head .sub,
+html.dark .book-author,
+html.dark .muted,
+html.dark .checks label { color: #cbd5e1; }
+
+html.dark .input,
+html.dark .sort select { background: #0b1220; color: #e5e7eb; border-color: #1f2937; }
+
+html.dark .chip { background: #162a56; color: #a5b4fc; }
+
+html.dark .book-footer { border-top-color: #1f2937; }
+
+html.dark .to-top {
+  background: #1d4ed8;
+  box-shadow: 0 10px 24px rgba(29,78,216,.45);
+}

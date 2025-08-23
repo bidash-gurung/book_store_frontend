@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Your Cart — BookHaven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/cart.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="./index.html">
+        <span class="brand-dot" aria-hidden="true">●</span>
+        <span class="brand-name">Book<span>Haven</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <div class="nav-links">
+        <a class="nav-link" href="./index.html">Home</a>
+        <a class="nav-link" href="./books.html">Books</a>
+        <a class="nav-link" href="./about.html">About</a>
+
+        <button id="themeToggle" class="btn icon" aria-label="Toggle theme" title="Toggle theme">
+          <span class="icon">🌙</span>
+        </button>
+
+        <!-- Cart button (shown only when logged in by app.js) -->
+        <a id="navCart" class="btn icon cart" href="./cart.html" aria-label="Cart" hidden>
+          🛒 <span id="cartCount" class="cart-count">0</span>
+        </a>
+
+        <a id="navAuthBtn" class="btn primary" href="./register.html">Login / Register</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE -->
+  <main class="cart-page">
+    <div class="wrap">
+      <header class="head">
+        <h1>Your Cart</h1>
+        <p class="sub">Review your items, update quantities, and proceed to checkout.</p>
+      </header>
+
+      <!-- If not logged in -->
+      <section id="loginGate" class="login-gate" hidden>
+        <div class="gate-card">
+          <div class="emoji" aria-hidden="true">🔒</div>
+          <h2>Please log in to view your cart</h2>
+          <p>Your cart is saved per account. Log in to manage items and checkout.</p>
+          <a class="btn primary" href="./register.html">Login / Register</a>
+          <a class="btn" href="./books.html">Browse books</a>
+        </div>
+      </section>
+
+      <!-- Cart layout -->
+      <section id="cartLayout" class="layout" hidden>
+        <!-- Items -->
+        <section class="items">
+          <ul id="itemsList" class="item-list" aria-live="polite" aria-busy="false"><!-- JS renders --></ul>
+
+          <!-- Empty state -->
+          <section id="emptyState" class="empty" hidden>
+            <div class="emoji" aria-hidden="true">📚</div>
+            <h3>Your cart is empty</h3>
+            <p>Find your next great read from our collection.</p>
+            <a class="btn primary" href="./books.html">Browse books</a>
+          </section>
+
+          <!-- Recommendations (optional) -->
+          <section id="recs" class="recs" hidden>
+            <h3>You might also like</h3>
+            <div id="recsGrid" class="recs-grid"><!-- JS renders --></div>
+          </section>
+        </section>
+
+        <!-- Summary -->
+        <aside class="summary">
+          <div class="box">
+            <h2>Order Summary</h2>
+
+            <div class="row">
+              <label for="couponCode" class="lbl">Coupon</label>
+              <div class="coupon">
+                <input id="couponCode" class="input" placeholder="SAVE10 or FREESHIP" />
+                <button id="applyCoupon" class="btn">Apply</button>
+              </div>
+            </div>
+
+            <div class="row tight">
+              <span>Subtotal</span>
+              <strong id="sumSubtotal">$0.00</strong>
+            </div>
+            <div class="row tight">
+              <span>Discount</span>
+              <strong id="sumDiscount">– $0.00</strong>
+            </div>
+
+            <div class="row">
+              <label for="shipMethod" class="lbl">Shipping</label>
+              <select id="shipMethod" class="input">
+                <option value="standard">Standard — $5.99</option>
+                <option value="express">Express — $14.99</option>
+              </select>
+            </div>
+            <div class="row tight">
+              <span>Shipping cost</span>
+              <strong id="sumShipping">$0.00</strong>
+            </div>
+
+            <div class="row tight">
+              <span>Tax (10%)</span>
+              <strong id="sumTax">$0.00</strong>
+            </div>
+
+            <div class="div"></div>
+
+            <div class="row total">
+              <span>Total</span>
+              <strong id="sumTotal">$0.00</strong>
+            </div>
+
+            <button id="checkoutBtn" class="btn primary wide" disabled>Proceed to Checkout</button>
+            <a class="muted-link" href="./books.html">Continue Shopping</a>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <!-- Back to top -->
+  <button id="toTop" class="to-top" aria-label="Back to top">⬆</button>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+</html>
