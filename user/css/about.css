@@ -1,0 +1,201 @@
+/* ========== ABOUT PAGE (BookHaven) ========== */
+
+/* Hero */
+.about-hero {
+  background: #2563eb;
+  color: #fff;
+  padding: 64px 16px;
+  text-align: center;
+}
+.about-hero .wrap {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.about-hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+}
+.about-hero .sub {
+  margin: 0 auto;
+  max-width: 680px;
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* General page sections */
+.about-page .wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.about-content {
+  padding: 40px 16px 32px;
+}
+.about-content h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: #0f172a;
+}
+.about-content p {
+  line-height: 1.7;
+  color: #334155;
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+
+.about-section {
+  padding: 28px 0;
+}
+.about-section.tinted {
+  background: #f3f6fb;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+.about-section h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.essay p {
+  margin: 0 0 12px;
+  color: #334155;
+  line-height: 1.75;
+}
+.id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+/* Team list */
+.team {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: grid;
+  gap: 12px;
+}
+.member {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #e5edff;
+  color: #2563eb;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+.member .name {
+  font-weight: 800;
+  color: #0f172a;
+}
+.member .muted {
+  color: #64748b;
+  font-size: 14px;
+}
+.note {
+  margin: 10px 0 0;
+  color: #64748b;
+}
+
+/* References */
+.refs {
+  list-style: disc;
+  padding-left: 20px;
+  color: #334155;
+  line-height: 1.7;
+}
+.refs a {
+  color: #2563eb;
+  text-decoration: none;
+}
+.refs a:hover {
+  text-decoration: underline;
+}
+
+/* Get in touch CTA */
+.contact-cta {
+  background: #2563eb;
+  color: #fff;
+  padding: 60px 16px;
+  text-align: center;
+}
+.contact-cta .wrap {
+  max-width: 800px;
+}
+.contact-cta h2 {
+  margin: 0 0 10px;
+  font-size: clamp(22px, 4.5vw, 34px);
+  font-weight: 800;
+}
+.contact-cta p {
+  margin: 0 0 18px;
+  font-size: 18px;
+  opacity: 0.95;
+}
+.contact-cta .btn.white {
+  background: #fff;
+  color: #2563eb;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+}
+.contact-cta .btn.white:hover {
+  filter: brightness(0.96);
+}
+
+/* Dark mode */
+html.dark .about-hero {
+  background: #1d4ed8;
+}
+html.dark .about-content h2,
+html.dark .about-section h2,
+html.dark .member .name {
+  color: #e5e7eb;
+}
+html.dark .about-content p,
+html.dark .essay p,
+html.dark .refs,
+html.dark .note {
+  color: #cbd5e1;
+}
+html.dark .about-section.tinted {
+  background: #0b1220;
+  border-color: #1f2937;
+}
+html.dark .member {
+  background: #0f172a;
+  border-color: #1f2937;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+html.dark .avatar {
+  background: #142447;
+  color: #c7d2fe;
+}
+html.dark .contact-cta {
+  background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .about-content,
+  .about-section {
+    padding: 26px 0;
+  }
+}

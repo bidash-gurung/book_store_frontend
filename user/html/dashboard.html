@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard — BookHaven</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <!-- NAV (no search) -->
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="./index.html">
+          <span class="brand-dot" aria-hidden="true">●</span>
+          <span class="brand-name">Book<span>Haven</span></span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <div class="nav-links">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./books.html">Books</a>
+          <a class="nav-link" href="./about.html">About</a>
+
+          <button
+            id="themeToggle"
+            class="btn icon"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            <span class="icon">🌙</span>
+          </button>
+
+          <!-- Cart button (shown only when logged in by app.js) -->
+          <a
+            id="navCart"
+            class="btn icon cart"
+            href="./cart.html"
+            aria-label="Cart"
+            hidden
+          >
+            🛒 <span id="cartCount" class="cart-count">0</span>
+          </a>
+
+          <!-- Auth button switches to full name when logged in -->
+          <a id="navAuthBtn" class="btn primary" href="./register.html"
+            >Login / Register</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <!-- PAGE -->
+    <main class="dash-page">
+      <div class="wrap">
+        <header class="head">
+          <h1>Your Dashboard</h1>
+          <p class="sub">
+            View and update your profile details. Changes save to your account
+            on this device.
+          </p>
+        </header>
+
+        <!-- Gate if not logged in -->
+        <section id="loginGate" class="login-gate" hidden>
+          <div class="gate-card">
+            <div class="emoji" aria-hidden="true">🔒</div>
+            <h2>Please log in to access your dashboard</h2>
+            <p>Your dashboard is available after login.</p>
+            <a class="btn primary" href="./register.html">Login / Register</a>
+            <a class="btn" href="./index.html">Back to Home</a>
+          </div>
+        </section>
+
+        <!-- Dashboard content -->
+        <section id="dashLayout" class="layout" hidden>
+          <!-- Left: Profile card -->
+          <aside class="profile">
+            <div class="card prof-card">
+              <div class="avatar" id="avatar" aria-hidden="true">U</div>
+              <h2 id="displayName">User</h2>
+              <p class="muted" id="displayEmail">user@example.com</p>
+
+              <div class="stats">
+                <div class="stat">
+                  <div class="k" id="statOrders">0</div>
+                  <div class="l">Orders</div>
+                </div>
+                <div class="stat">
+                  <div class="k" id="statWishlist">0</div>
+                  <div class="l">Wishlist</div>
+                </div>
+                <div class="stat">
+                  <div class="k" id="statCart">0</div>
+                  <div class="l">In Cart</div>
+                </div>
+              </div>
+
+              <div class="actions">
+                <a class="btn" href="./books.html">Browse books</a>
+                <a class="btn" href="./cart.html">Go to cart</a>
+                <button id="logoutBtn" class="btn danger">Log out</button>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right: Settings form -->
+          <section class="content">
+            <div class="card">
+              <h2>Personal Details</h2>
+              <form id="profileForm" novalidate>
+                <div class="grid">
+                  <div class="field">
+                    <label for="name">Full name</label>
+                    <input
+                      id="name"
+                      class="input"
+                      required
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="email">Email (can’t be changed)</label>
+                    <input id="email" class="input" disabled />
+                  </div>
+
+                  <div class="field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" class="input" placeholder="Optional" />
+                  </div>
+
+                  <div class="field">
+                    <label for="address">Address</label>
+                    <textarea
+                      id="address"
+                      class="input"
+                      rows="3"
+                      placeholder="Street, city, postcode"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <button type="submit" class="btn primary">
+                    Save changes
+                  </button>
+                  <span
+                    id="saveMsg"
+                    class="save-msg"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
+                </div>
+              </form>
+            </div>
+
+            <div class="card">
+              <h2>Change Password</h2>
+              <form id="passForm" novalidate>
+                <div class="grid">
+                  <div class="field">
+                    <label for="currentPass">Current password</label>
+                    <input
+                      id="currentPass"
+                      class="input"
+                      type="password"
+                      placeholder="••••••••"
+                      required
+                      minlength="6"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="newPass">New password</label>
+                    <input
+                      id="newPass"
+                      class="input"
+                      type="password"
+                      placeholder="min. 6 characters"
+                      required
+                      minlength="6"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="confirmPass">Confirm new password</label>
+                    <input
+                      id="confirmPass"
+                      class="input"
+                      type="password"
+                      placeholder="retype password"
+                      required
+                      minlength="6"
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <button type="submit" class="btn">Update password</button>
+                  <span
+                    id="passMsg"
+                    class="save-msg"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
+                </div>
+              </form>
+              <p class="muted small">
+                Note: This project is front‑end only. Your password is hashed
+                and stored locally on this device.
+              </p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <!-- Back to top -->
+    <button id="toTop" class="to-top" aria-label="Back to top">⬆</button>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

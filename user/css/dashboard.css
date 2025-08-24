@@ -1,0 +1,253 @@
+/* =========================
+   DASHBOARD
+   ========================= */
+.dash-page .wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+
+.head {
+  margin-bottom: 12px;
+}
+.head h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  color: #0f172a;
+}
+.head .sub {
+  margin: 4px 0 0;
+  color: #64748b;
+}
+
+/* Gate */
+.login-gate {
+  display: grid;
+  place-items: center;
+  padding: 40px 0 24px;
+}
+.gate-card {
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px 20px;
+  max-width: 560px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+}
+.gate-card .emoji {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+.gate-card h2 {
+  margin: 6px 0;
+  font-size: 22px;
+}
+.gate-card p {
+  margin: 0 0 14px;
+  color: #475569;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+}
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+}
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+/* Profile left */
+.prof-card {
+  text-align: center;
+}
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  margin: 6px auto 6px;
+  display: grid;
+  place-items: center;
+  background: #e5edff;
+  color: #2563eb;
+  font-size: 32px;
+  font-weight: 800;
+}
+.prof-card h2 {
+  margin: 8px 0 2px;
+}
+.muted {
+  color: #64748b;
+}
+.small {
+  font-size: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+.stat {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px;
+}
+.k {
+  font-weight: 800;
+  color: #1d4ed8;
+  text-align: center;
+}
+.l {
+  text-align: center;
+  color: #475569;
+  font-size: 12px;
+}
+
+.actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.btn.primary {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+.btn.danger {
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+/* Forms */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.grid .field:nth-child(4) {
+  grid-column: 1 / -1;
+} /* address full width */
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+.field label {
+  display: block;
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.save-msg {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* Back to top (reuse) */
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Dark mode */
+html.dark .card,
+html.dark .gate-card {
+  background: #0f172a;
+  border-color: #1f2937;
+}
+html.dark .head h1,
+html.dark .card h2,
+html.dark .field label {
+  color: #e5e7eb;
+}
+html.dark .muted {
+  color: #cbd5e1;
+}
+html.dark .input {
+  background: #0b1220;
+  color: #e5e7eb;
+  border-color: #1f2937;
+}
+html.dark .avatar {
+  background: #142447;
+  color: #c7d2fe;
+}
+html.dark .stat {
+  background: #0b1220;
+  border-color: #1f2937;
+}
+html.dark .to-top {
+  background: #1d4ed8;
+  box-shadow: 0 10px 24px rgba(29, 78, 216, 0.45);
+}
+
+/* Safety: ensure hidden really hides */
+#loginGate[hidden],
+#dashLayout[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin Login — BookHaven</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/admin-auth.css" />
+  </head>
+  <body>
+    <main class="auth">
+      <section class="card">
+        <h1>Admin Login</h1>
+        <p class="muted">Use the credentials provided by your instructor.</p>
+
+        <form id="adminLoginForm" class="form" novalidate>
+          <label class="field">
+            <span>Username</span>
+            <input id="username" placeholder="admin" required />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input id="password" type="password" placeholder="admin" required />
+          </label>
+
+          <button class="btn primary" type="submit">Sign in</button>
+          <p class="note">
+            Demo credentials: <code>admin</code> / <code>admin</code>
+          </p>
+        </form>
+
+        <div class="footer-links">
+          <a href="../../user/html/index.html">← Back to site</a>
+          <a href="../../user/html/register.html">User login</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/admin-auth.js"></script>
+  </body>
+</html>

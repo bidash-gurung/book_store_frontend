@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard — BookHaven</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/admin-dashboard.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Left Sidebar -->
+      <aside class="aside">
+        <div class="brand">Book<span>Haven</span></div>
+        <nav class="menu">
+          <a class="menu-item active" href="#" data-view="dashboard"
+            >Admin Dashboard</a
+          >
+          <button id="logoutBtn" class="menu-item danger">Logout</button>
+        </nav>
+      </aside>
+
+      <!-- Content -->
+      <main class="content">
+        <header class="head">
+          <h1>Products</h1>
+          <div class="actions">
+            <button id="addBtn" class="btn primary">+ Add Book</button>
+            <button id="seedBtn" class="btn">Seed demo</button>
+            <button id="themeToggle" class="btn" title="Toggle theme">
+              🌙
+            </button>
+          </div>
+        </header>
+
+        <section class="panel">
+          <div class="list-head">
+            <input
+              id="q"
+              class="input"
+              placeholder="Search title / author / genre…"
+            />
+            <select id="sort" class="input">
+              <option value="title">Sort: Title</option>
+              <option value="price-asc">Sort: Price (Low → High)</option>
+              <option value="price-desc">Sort: Price (High → Low)</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Cover</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Genre</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Flags</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Modal for Add/Edit -->
+    <dialog id="editModal" class="modal">
+      <form method="dialog" class="modal-card" id="editForm">
+        <h2 id="modalTitle">Edit Product</h2>
+        <input type="hidden" id="m_id" />
+
+        <label class="field">
+          <span>Title</span>
+          <input id="m_title" required />
+        </label>
+
+        <label class="field">
+          <span>Author</span>
+          <input id="m_author" required />
+        </label>
+
+        <label class="field">
+          <span>Genre</span>
+          <input id="m_genre" />
+        </label>
+
+        <div class="grid2">
+          <label class="field">
+            <span>Price (AUD)</span>
+            <input id="m_price" type="number" step="0.01" min="0" required />
+          </label>
+
+          <label class="field">
+            <span>Stock</span>
+            <input id="m_stock" type="number" min="0" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Cover image</span>
+          <div class="img-row">
+            <img id="m_preview" class="thumb lg" alt="Cover preview" />
+            <div class="img-inputs">
+              <input
+                id="m_img"
+                placeholder="Image URL (or use file selector)"
+              />
+              <input id="m_file" type="file" accept="image/*" />
+            </div>
+          </div>
+        </label>
+
+        <div class="checks">
+          <label><input id="m_featured" type="checkbox" /> Featured</label>
+          <label><input id="m_new" type="checkbox" /> New</label>
+        </div>
+
+        <menu class="modal-actions">
+          <button value="cancel" class="btn">Cancel</button>
+          <button id="saveEditBtn" value="default" class="btn primary">
+            Save
+          </button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="../js/admin-dashboard.js"></script>
+  </body>
+</html>
